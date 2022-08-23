@@ -1,0 +1,5 @@
+# All node_modules folders
+*/node_modules
+
+# .txt files generated in challenge2/products directory
+/challenge2/products/*

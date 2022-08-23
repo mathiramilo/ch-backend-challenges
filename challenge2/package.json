@@ -1,0 +1,19 @@
+{
+  "name": "challenge2",
+  "version": "1.0.0",
+  "description": "File Management Challenges",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mathias Ramilo",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "readline-sync": "^1.4.10",
+    "uuid": "^8.3.2"
+  }
+}
