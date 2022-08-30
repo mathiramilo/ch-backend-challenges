@@ -1,5 +1,11 @@
 # All node_modules folders
 */node_modules
 
+# All package-lock.json files
+package-lock.json
+
+# All .env files
+.env
+
 # .txt files generated in challenge2/products directory
 /challenge2/products/*
