@@ -13,6 +13,7 @@ app.get('/products', async (req, res) => {
     res.send(products)
   } catch (err) {
     console.log(err.message)
+    res.status(204).send('An error has ocurred getting the products')
   }
 })
 
@@ -23,6 +24,7 @@ app.get('/randomProduct', async (req, res) => {
     res.send(randomProduct)
   } catch (err) {
     console.log(err.message)
+    res.status(204).send('An error has ocurred getting a random product')
   }
 })
 
