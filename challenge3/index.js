@@ -28,6 +28,11 @@ app.get('/randomProduct', async (req, res) => {
   }
 })
 
+/* Page not found 404 */
+app.get('*', (req, res) => {
+  res.status(404).send('Error 404: Page not found')
+})
+
 const server = app.listen(PORT, () => {
   console.log(`Server is up and running on port ${PORT}`)
 })
