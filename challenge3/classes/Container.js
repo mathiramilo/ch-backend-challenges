@@ -5,6 +5,7 @@
 
     save: (Product) => Number
     getById: (Number) => Product
+    getRandom: () => Product
     getAll: () => Product[]
     deleteById: (Number) => void
     deleteAll: () => void
@@ -36,7 +37,7 @@ class Container {
       products.push(product)
 
       await fs.promises.writeFile(
-        `db/${this.fileName}.txt`,
+        `data/${this.fileName}.txt`,
         JSON.stringify(products)
       )
       return product.id
@@ -76,7 +77,7 @@ class Container {
   getAll = async () => {
     try {
       const content = await fs.promises.readFile(
-        `db/${this.fileName}.txt`,
+        `data/${this.fileName}.txt`,
         'utf-8'
       )
       const products = JSON.parse(content || '[]')
@@ -96,7 +97,7 @@ class Container {
         const newProducts = allProducts.filter(prod => prod.id !== productId)
 
         await fs.promises.writeFile(
-          `db/${this.fileName}.txt`,
+          `data/${this.fileName}.txt`,
           JSON.stringify(newProducts)
         )
       } else {
@@ -109,7 +110,7 @@ class Container {
 
   deleteAll = async () => {
     try {
-      await fs.promises.writeFile(`db/${this.fileName}.txt`, '')
+      await fs.promises.writeFile(`data/${this.fileName}.txt`, '')
     } catch (err) {
       console.log(err.message.red)
     }
