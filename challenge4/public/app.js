@@ -1,3 +1,6 @@
+/* POST a product endpoint */
+const url = 'http://localhost:8080/api/products'
+
 /* Grab the necessary elements from the DOM, form, inputs, success indicators, etc. */
 const form = document.getElementById('add-product-form')
 
@@ -35,7 +38,7 @@ async function handleSubmit(evt) {
 
   try {
     // POST request
-    const response = await fetch('http://localhost:8080/api/products', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
