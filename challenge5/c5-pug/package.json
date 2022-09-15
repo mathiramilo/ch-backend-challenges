@@ -1,0 +1,23 @@
+{
+  "name": "c5-pug",
+  "version": "1.0.0",
+  "description": "Pug template engine",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mathias Ramilo",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.1",
+    "pug": "^3.0.2",
+    "uuid": "^9.0.0"
+  }
+}

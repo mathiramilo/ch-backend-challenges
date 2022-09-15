@@ -1,0 +1,156 @@
+const express = require('express')
+const { v4: uuidv4 } = require('uuid')
+const Container = require('../../../models/Container')
+
+const container = new Container('products.json')
+
+const router = express.Router()
+
+// Routes
+router.get('/', async (req, res) => {
+  try {
+    const products = await container.getAll()
+    res.json({ success: true, result: products })
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: 'An error has ocurred getting all products'
+    })
+  }
+})
+
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const product = await container.getById(id)
+    if (product) {
+      res.json({ success: true, result: product })
+    } else {
+      res.status(404).json({ success: false, error: 'Product not found' })
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: 'An error has ocurred getting the product'
+    })
+  }
+})
+
+router.post('/', async (req, res) => {
+  try {
+    const { title, price, thumbnail } = req.body
+
+    if (!title || !price || !thumbnail) {
+      return res.status(400).json({
+        success: false,
+        error:
+          'Wrong body format: title, price and thumbnail fields are required'
+      })
+    }
+    if (typeof title !== 'string') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: title must be a string'
+      })
+    }
+    if (typeof price !== 'number') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: price must be a number'
+      })
+    }
+    if (typeof thumbnail !== 'string') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: thumbnail must be a string'
+      })
+    }
+
+    const newProduct = { id: uuidv4(), title, price, thumbnail }
+    await container.save(newProduct)
+    return res.json({ success: true, result: newProduct })
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: 'An error has ocurred saving the product'
+    })
+  }
+})
+
+router.put('/:id', async (req, res) => {
+  try {
+    const {
+      params: { id },
+      body: { title, price, thumbnail }
+    } = req
+
+    if (!title || !price || !thumbnail) {
+      return res.status(400).json({
+        success: false,
+        error:
+          'Wrong body format: title, price and thumbnail fields are required'
+      })
+    }
+    if (typeof title !== 'string') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: title must be a string'
+      })
+    }
+    if (typeof price !== 'number') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: price must be a number'
+      })
+    }
+    if (typeof thumbnail !== 'string') {
+      return res.status(400).json({
+        success: false,
+        error: 'Wrong body format: thumbnail must be a string'
+      })
+    }
+
+    const productUpdated = { id, title, price, thumbnail }
+    const updateByIdResult = await container.updateById(productUpdated)
+
+    if (updateByIdResult === -1) {
+      return res.status(404).json({
+        success: false,
+        error: `Product with id: ${id} does not exist`
+      })
+    } else {
+      return res.json({ success: true, result: productUpdated })
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: 'An error has ocurred updating the product'
+    })
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleteByIdResult = await container.deleteById(id)
+
+    if (deleteByIdResult === -1) {
+      return res.status(404).json({
+        success: false,
+        error: `Product with id: ${id} does not exist`
+      })
+    } else {
+      return res.json({
+        success: true,
+        result: `Product with id: ${id} deleted`
+      })
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: 'An error has ocurred deleting the product'
+    })
+  }
+})
+
+module.exports = router
