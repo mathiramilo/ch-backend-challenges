@@ -5,9 +5,11 @@ const { Server: SocketServer } = require('socket.io')
 const logger = require('./middlewares/logger')
 const apiRoutes = require('./routes/api/apiRoutes')
 const webRoutes = require('./routes/web/webRoutes')
-const Container = require('./models/Container')
+const ProductsHandler = require('./models/ProductsHandler')
+const MessagesHandler = require('./models/MessagesHandler')
 
-const container = new Container('products.json')
+const productsHandler = new ProductsHandler('products.json')
+const messagesHandler = new MessagesHandler('messages.json')
 
 const PORT = process.env.PORT || 8080
 
@@ -42,12 +44,22 @@ io.on('connection', async socket => {
   console.log('New client connection - ID:', socket.id)
 
   // Getting all products
-  const products = await container.getAll()
+  const products = await productsHandler.getAll()
   socket.emit('products', { products })
 
   // New Product
   socket.on('new-product', async data => {
-    const products = await container.getAll()
+    const products = await productsHandler.getAll()
     io.emit('products', { products })
+  })
+
+  // Getting all messages
+  const messages = await messagesHandler.getAll()
+  socket.emit('messages', { messages })
+
+  // New Message
+  socket.on('new-message', async data => {
+    const messages = await messagesHandler.getAll()
+    io.emit('messages', { messages })
   })
 })

@@ -1,15 +1,15 @@
 const express = require('express')
 const { v4: uuidv4 } = require('uuid')
-const Container = require('../../../models/Container')
+const ProductsHandler = require('../../../models/ProductsHandler')
 
-const container = new Container('products.json')
+const productsHandler = new ProductsHandler('products.json')
 
 const router = express.Router()
 
 // Routes
 router.get('/', async (req, res) => {
   try {
-    const products = await container.getAll()
+    const products = await productsHandler.getAll()
     res.json({ success: true, result: products })
   } catch (err) {
     res.status(500).json({
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params
-    const product = await container.getById(id)
+    const product = await productsHandler.getById(id)
     if (product) {
       res.json({ success: true, result: product })
     } else {
@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
     }
 
     const newProduct = { id: uuidv4(), title, price, thumbnail }
-    await container.save(newProduct)
+    await productsHandler.save(newProduct)
     return res.json({ success: true, result: newProduct })
   } catch (err) {
     res.status(500).json({
@@ -111,7 +111,7 @@ router.put('/:id', async (req, res) => {
     }
 
     const productUpdated = { id, title, price, thumbnail }
-    const updateByIdResult = await container.updateById(productUpdated)
+    const updateByIdResult = await productsHandler.updateById(productUpdated)
 
     if (updateByIdResult === -1) {
       return res.status(404).json({
@@ -132,7 +132,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params
-    const deleteByIdResult = await container.deleteById(id)
+    const deleteByIdResult = await productsHandler.deleteById(id)
 
     if (deleteByIdResult === -1) {
       return res.status(404).json({

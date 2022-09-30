@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 10px;
+}
+
+/* Tailwind classes */
+
 .border-green-400 {
   --tw-border-opacity: 1;
   border-color: rgb(74 222 128 / var(--tw-border-opacity));

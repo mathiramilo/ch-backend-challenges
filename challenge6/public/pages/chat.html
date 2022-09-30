@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta description="Websockets challenge">
   <title>WebSockets - Chat App</title>
-  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <!-- Styles -->
-  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="../dist/output.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -24,6 +24,25 @@
   </div>
 
   <!-- Chat -->
+  <div class="my-32 w-10/12 max-w-2xl rounded-md shadow-md overflow-hidden mx-auto">
+    <div id="success-indicator-bar" class="w-full h-2 transition-colors bg-gray-300"></div>
+
+    <h3 class="ml-4 sm:ml-8 md:ml-10 my-6 font-medium text-lg text-gray-600">Message Center</h3>
+
+    <input type="text" id="email" name="email" class="ml-4 sm:ml-8 md:ml-10 mb-1 w-[89%] md:w-[88%] bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300" placeholder="Enter your email">
+    <div class="ml-4 sm:ml-8 md:ml-10 mb-6">
+      <span id="email-alert" class="text-sm text-red-400"></span>
+    </div>
+
+    <div class="messages-container w-[88%] mx-auto mb-6 bg-gray-50 border-[1px] border-gray-100 rounded-sm p-2">
+      <div id="messages" class="messages h-64 overflow-y-scroll"></div>
+
+      <form id="send-message-form" class="send-message mt-10 shadow-sm rounded-sm flex overflow-hidden">
+        <input type="text" id="my-message" name="my-message" class="bg-white p-1 text-gray-600 w-[70%] sm:w-[80%] focus:outline-none focus:ring-1 focus:ring-gray-300" placeholder="Say something..." autocomplete="off">  
+        <button id="send-message-btn" class="bg-gray-300 transition-all hover:bg-green-400 hover:text-white flex-1">Send</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <div class="footer w-full flex flex-col items-center justify-center py-6">
@@ -37,6 +56,6 @@
   
   <!-- JavaScript -->
   <script src="/socket.io/socket.io.js"></script>
-  <script src="./app.js"></script>
+  <script src="../js/chat.js"></script>
 </body>
 </html>
