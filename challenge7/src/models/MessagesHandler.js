@@ -1,4 +1,5 @@
-const fs = require('fs')
+const { sqlite } = require('../db/config')
+const knex = require('knex')(sqlite)
 const colors = require('colors')
 
 class MessagesHandler {
@@ -8,13 +9,8 @@ class MessagesHandler {
 
   save = async message => {
     try {
-      const messages = await this.getAll()
-      messages.push(message)
-
-      await fs.promises.writeFile(
-        `src/data/${this.fileName}`,
-        JSON.stringify(messages)
-      )
+      await knex('messages').insert(message)
+      console.log('Message saved successfully in the database'.green)
     } catch (err) {
       console.log(err.message.red)
     }
@@ -22,12 +18,17 @@ class MessagesHandler {
 
   getAll = async () => {
     try {
-      const content = await fs.promises.readFile(
-        `src/data/${this.fileName}`,
-        'utf-8'
-      )
-      const messages = JSON.parse(content || '[]')
-      return messages
+      const messages = await knex('messages')
+
+      if (messages.length > 0) {
+        console.log(
+          'All messages successfully received from the database'.green
+        )
+        return messages
+      }
+
+      console.log('No messages found in the database'.red)
+      return []
     } catch (err) {
       console.log(err.message.red)
       return []

@@ -10,8 +10,7 @@
     "make-migration": "knex migrate:make",
     "migrate": "knex migrate:up",
     "rollback": "knex migrate:rollback",
-    "list-migrations": "knex migrate:list",
-    "sqlite-run-scripts": "node src/db/scripts/run_scripts.js"
+    "list-migrations": "knex migrate:list"
   },
   "keywords": [],
   "author": "Mathias Ramilo",
@@ -22,8 +21,7 @@
     "knex": "^2.3.0",
     "mysql": "^2.18.1",
     "socket.io": "^4.5.2",
-    "sqlite3": "^5.1.2",
-    "uuid": "^9.0.0"
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

@@ -1,5 +1,4 @@
 const express = require('express')
-const { v4: uuidv4 } = require('uuid')
 const MessagesHandler = require('../../../models/MessagesHandler')
 
 const messagesHandler = new MessagesHandler('messages.json')
@@ -43,7 +42,6 @@ router.post('/', async (req, res) => {
     }
 
     const newMessage = {
-      id: uuidv4(),
       email,
       date: new Date().toLocaleString(),
       text
