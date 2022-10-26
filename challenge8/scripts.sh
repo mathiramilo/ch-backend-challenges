@@ -125,7 +125,7 @@ db.products.insertOne({
   thumbnail: 'https://cdn3.iconfinder.com/data/icons/pleasant/GIF-Image.png'
 })
 
-## 5.B. Find by keys
+## 5.B. Find with filters
 
 ### 5.B.1. Find products with price lower than 1000
 db.products.find({ price: { $lt: 1000 } })
@@ -133,10 +133,10 @@ db.products.find({ price: { $lt: 1000 } })
 db.products.find({ $and: [{ price: { $gt: 1000 } }, { price: { $lt: 3000 } }] })
 ### 5.B.3. Find products with price greater than 3000
 db.products.find({ price: { $gt: 3000 } })
-### 5.B.4. Find the name of the third most cheaper product
+### 5.B.4. Find the title of the third most cheaper product
 db.products.find({}, { title: 1 }).sort({ price: 1 }).limit(1).skip(2)
 
-## 5.C. Update all products, adding a new key called stock with a value of 100
+## 5.C. Update all products, adding a new field called stock with a value of 100
 db.products.updateMany({}, { $set: { stock: 100 } })
 
 ## 5.D. Update all products with a price greater than 4000, setting the stock to 0
@@ -145,7 +145,7 @@ db.products.updateMany({ price: { $gt: 4000 } }, { $set: { stock: 0 } })
 ## 5.E. Delete all products with a price lower than 1000
 db.products.deleteMany({ price: { $lt: 1000 } })
 
-# 6. Create an user called 'pepe' with key 'asd456' that can only read the database
+# 6. Create an user called 'pepe' with password 'asd456' that can only read the database
 use admin
 db.createUser({
   user: 'pepe',
@@ -153,7 +153,7 @@ db.createUser({
   roles: [
     {
       role: 'read',
-      db: 'ecommerce'
+      db: 'ch-challenges-ecommerce'
     }
   ]
 })
