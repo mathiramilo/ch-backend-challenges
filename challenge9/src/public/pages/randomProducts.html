@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags, title and favicon -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta description="Websockets challenge">
+  <title>Mocks & Normalization - Random</title>
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <!-- Styles -->
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w-full py-6 px-5 sm:px-8 shadow-sm">
+    <div class="mx-auto flex justify-between items-center max-w-3xl">
+      <a href="/" class="text-xl font-medium text-gray-500">Mocks & Normalization</a>
+      <nav class="flex justify-center items-center gap-4 sm:gap-8">
+        <a href="/" class="text-gray-500 hover:text-gray-700 hover:font-medium">Products</a>
+        <a href="/chat" class="text-gray-500 hover:text-gray-700 hover:font-medium">Chat</a>
+        <a href="/randomProducts" class="text-gray-500 hover:text-gray-700 hover:font-medium">Random</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Products Table (WebSockets) -->
+  <div class="w-full flex flex-col mt-28 mb-28">
+    <div id="products-container" class="flex flex-col gap-10 max-w-2xl mx-auto"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer w-full flex flex-col items-center justify-center py-6">
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-neutral-500">Developed by Mathias Ramilo</span>
+      <a href="https://github.com/mathiramilo" target="_blank">
+        <svg class="w-5 fill-neutral-500 transition-colors hover:fill-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="github-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+    </div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../js/randomProducts.js"></script>
+</body>
+</html>
