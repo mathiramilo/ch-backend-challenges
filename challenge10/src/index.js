@@ -1,8 +1,8 @@
 const path = require('path')
 
 const express = require('express')
-const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const MongoStore = require('connect-mongo')
 
 const { Server: HttpServer } = require('http')
