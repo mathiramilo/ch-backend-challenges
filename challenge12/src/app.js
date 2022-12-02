@@ -30,6 +30,7 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+require('./middlewares/passport')(passport)
 app.use(logger)
 
 // Routes
