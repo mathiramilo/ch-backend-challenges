@@ -7,7 +7,7 @@ const dir_dd = document.getElementById('project-dir')
 const execPath_dd = document.getElementById('exec-path')
 const os_dd = document.getElementById('os')
 const version_dd = document.getElementById('version')
-const rss__dd = document.getElementById('rss')
+const rss_dd = document.getElementById('rss')
 const arguments_ul = document.getElementById('arguments')
 
 getProcessInfo()
@@ -23,7 +23,7 @@ async function getProcessInfo() {
     execPath_dd.innerText = processInfo.execPath
     os_dd.innerText = processInfo.os
     version_dd.innerText = processInfo.version
-    rss__dd.innerText = processInfo.rss
+    rss_dd.innerText = processInfo.rss
     arguments_ul.innerHTML = renderArguments(processInfo.args)
   } catch (err) {
     console.log(err)
