@@ -3,7 +3,7 @@ const logger = (req, res, next) => {
   const url = req.url
   const date = new Date().toLocaleDateString()
 
-  console.log(`[${method}] => ${url}`, date)
+  console.log(`${method} => ${url}`, date)
   next()
 }
 

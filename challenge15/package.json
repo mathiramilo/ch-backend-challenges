@@ -1,7 +1,7 @@
 {
-  "name": "challenge14",
+  "name": "challenge15",
   "version": "1.0.0",
-  "description": "Loggers, GZIP & performance analysis",
+  "description": "Heroku deploy",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon .",

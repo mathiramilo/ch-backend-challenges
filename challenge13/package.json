@@ -1,7 +1,7 @@
 {
-  "name": "challenge12",
+  "name": "challenge13",
   "version": "1.0.0",
-  "description": "Process Object",
+  "description": "Load balancing with Nginx",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon .",
