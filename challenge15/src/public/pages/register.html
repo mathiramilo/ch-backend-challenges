@@ -21,69 +21,78 @@
         >
       </div>
 
-      <form
-        id="login-form"
-        class="mx-auto w-10/12 max-w-md rounded-md shadow-md overflow-hidden"
-      >
-        <div
-          id="success-indicator-bar"
-          class="w-full h-2 transition-colors bg-gray-300"
-        ></div>
+      <div class="w-full flex flex-col justify-center items-center gap-10">
+        <form
+          id="register-form"
+          class="mx-auto w-10/12 max-w-md rounded-md shadow-md overflow-hidden"
+        >
+          <div
+            id="success-indicator-bar"
+            class="w-full h-2 transition-colors bg-gray-300"
+          ></div>
 
-        <h1 class="ml-4 my-6 font-medium text-lg text-gray-600">Register</h1>
+          <h1 class="ml-4 my-6 font-medium text-lg text-gray-600">Register</h1>
 
-        <div class="flex flex-col gap-4 w-11/12 mx-auto">
-          <div class="flex flex-col gap-2">
-            <label for="title" class="text-gray-700 text-md">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
-              required
-            />
+          <div class="flex flex-col gap-4 w-11/12 mx-auto">
+            <div class="flex flex-col gap-2">
+              <label for="title" class="text-gray-700 text-md">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                required
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="password" class="text-gray-700 text-md"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                required
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="password" class="text-gray-700 text-md"
+                >Repeat Password</label
+              >
+              <input
+                type="password"
+                id="repeat-password"
+                name="repeat-password"
+                class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                required
+              />
+            </div>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="password" class="text-gray-700 text-md">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
-              required
-            />
-          </div>
-
-          <div class="flex flex-col gap-2">
-            <label for="password" class="text-gray-700 text-md"
-              >Repeat Password</label
+          <div class="mx-auto flex justify-center items-center gap-2">
+            <button
+              type="submit"
+              class="my-6 bg-cyan-500 px-8 py-1 rounded-md text-white font-semibold transition-all hover:bg-cyan-600"
             >
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="bg-gray-100 p-1 rounded-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-300"
-              required
-            />
+              Register
+            </button>
+            <a
+              href="/login"
+              class="my-6 px-8 py-1 text-gray-300 font-semibold transition-all hover:text-gray-400"
+            >
+              Login
+            </a>
           </div>
-        </div>
+        </form>
 
-        <div class="mx-auto flex justify-center items-center gap-2">
-          <button
-            type="submit"
-            class="my-6 bg-cyan-500 px-8 py-1 rounded-md text-white font-semibold transition-all hover:bg-cyan-600"
-          >
-            Register
-          </button>
-          <a
-            href="/login"
-            class="my-6 px-8 py-1 text-gray-300 font-semibold transition-all hover:text-gray-400"
-          >
-            Login
-          </a>
-        </div>
-      </form>
+        <div
+          id="success-indicator-message"
+          class="w-10/12 max-w-md rounded-md p-2 border-2 hidden"
+        ></div>
+      </div>
 
       <!-- Footer -->
       <div class="footer w-full flex flex-col items-center justify-center py-8">
@@ -111,6 +120,6 @@
     <!-- JavaScript -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="../global.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="../js/register.js"></script>
   </body>
 </html>

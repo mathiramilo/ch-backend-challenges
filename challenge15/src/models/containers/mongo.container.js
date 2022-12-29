@@ -3,6 +3,8 @@ const dbConfig = require('../../db/db.config')
 const { HttpError } = require('../../utils/api.utils')
 const { HTTP_STATUS } = require('../../constants/api.constants')
 
+mongoose.set('strictQuery', true)
+
 class MongoContainer {
   constructor(collection, schema) {
     this.model = mongoose.model(collection, schema)
