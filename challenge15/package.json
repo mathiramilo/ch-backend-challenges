@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon .",
     "start": "node .",
-    "test": "node src/benchmark.js",
     "tailwind-watch": "tailwindcss -i ./src/public/input.css -o ./src/public/dist/output.css --watch"
   },
   "keywords": [],
