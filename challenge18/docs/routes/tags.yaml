@@ -1,0 +1,7 @@
+tags:
+  - name: 'Products'
+    description: 'API to manage your products'
+  - name: 'Messages'
+    description: 'API to manage messages'
+  - name: 'Auth'
+    description: 'API to manage authentication'

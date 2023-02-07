@@ -1,0 +1,33 @@
+paths:
+  '/api/messages':
+    post:
+      summary: 'Save a new message'
+      tags:
+        - 'Messages'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/MessagePayload'
+      responses:
+        '201':
+          description: 'Message saved successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          description: 'Bad request, all body fields required'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                  message:
+                    type: 'string'
+                example:
+                  success: false
+                  message: 'All fields are required'

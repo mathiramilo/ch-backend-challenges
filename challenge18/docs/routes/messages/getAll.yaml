@@ -1,0 +1,21 @@
+paths:
+  '/api/messages':
+    get:
+      summary: 'Gets all messages'
+      tags:
+        - 'Messages'
+      responses:
+        '200':
+          description: 'All messages'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                    description: 'Successfull response'
+                  data:
+                    type: 'array'
+                    items:
+                      $ref: '#/components/schemas/Message'

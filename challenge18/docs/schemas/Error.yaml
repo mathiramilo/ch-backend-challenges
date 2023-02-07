@@ -1,0 +1,14 @@
+components:
+  schemas:
+    Error:
+      type: 'object'
+      properties:
+        success:
+          type: 'boolean'
+          description: 'Whether the request was successfull or not'
+        message:
+          type: 'string'
+          description: 'The error message'
+      example:
+        success: false
+        message: 'Resource not found'

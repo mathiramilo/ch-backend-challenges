@@ -1,0 +1,45 @@
+paths:
+  '/api/auth/login':
+    post:
+      summary: 'Login'
+      tags:
+        - 'Auth'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/UserPayload'
+      responses:
+        '200':
+          description: 'Logged in successfully'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                    description: 'Successfull response'
+                  data:
+                    type: 'object'
+                    properties:
+                      newUser:
+                        $ref: '#components/schemas/User'
+                      token:
+                        type: 'string'
+                        description: 'The JWT token'
+        '400':
+          description: 'Bad request, all body fields required'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                  message:
+                    type: 'string'
+                example:
+                  success: false
+                  message: 'All fields are required'

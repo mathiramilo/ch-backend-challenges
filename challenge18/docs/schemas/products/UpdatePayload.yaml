@@ -1,0 +1,18 @@
+components:
+  requestBodies:
+    UpdateProductPayload:
+      type: 'object'
+      properties:
+        title:
+          type: 'string'
+          description: 'The title of the product'
+        price:
+          type: 'number'
+          description: 'The price for the product'
+        thumbnail:
+          type: 'string'
+          description: 'The URL of the product thumbnail'
+      example:
+        title: 'Globe'
+        price: '120.90'
+        thumbnail: 'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-64.png'

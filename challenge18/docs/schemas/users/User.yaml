@@ -1,0 +1,22 @@
+components:
+  schemas:
+    User:
+      type: 'object'
+      required:
+        - 'id'
+        - 'username'
+        - 'password'
+      properties:
+        id:
+          type: 'string'
+          description: 'The auto-generated id for the product'
+        username:
+          type: 'string'
+          description: 'The user username'
+        password:
+          type: 'string'
+          description: 'The user password'
+      example:
+        id: 'sf0sf-ds46fd-ft634-4ds33'
+        username: 'johndoe34'
+        password: 'asd934bnf00dmnd83bnf'

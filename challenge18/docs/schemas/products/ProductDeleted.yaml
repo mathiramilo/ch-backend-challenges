@@ -1,0 +1,22 @@
+components:
+  schemas:
+    ProductDeleted:
+      type: 'object'
+      properties:
+        success:
+          type: 'boolean'
+          description: 'Whether the request was successfull or not'
+        data:
+          type: 'object'
+          properties:
+            acknowledged:
+              type: 'boolean'
+              description: 'Whether the product have been deleted or not'
+            deletedCount:
+              type: 'number'
+              description: 'The quantity of deleted products'
+      example:
+        success: true
+        data:
+          acknowledged: true
+          deletedCount: 1

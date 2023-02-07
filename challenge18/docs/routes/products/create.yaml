@@ -1,0 +1,33 @@
+paths:
+  '/api/products':
+    post:
+      summary: 'Creates a new product'
+      tags:
+        - 'Products'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/CreateProductPayload'
+      responses:
+        '201':
+          description: 'Product created successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: 'Bad request, all body fields required'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                  message:
+                    type: 'string'
+                example:
+                  success: false
+                  message: 'All fields are required'

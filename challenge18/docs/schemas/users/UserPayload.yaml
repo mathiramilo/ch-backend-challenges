@@ -1,0 +1,17 @@
+components:
+  requestBodies:
+    UserPayload:
+      type: 'object'
+      required:
+        - 'username'
+        - 'password'
+      properties:
+        username:
+          type: 'string'
+          description: 'The user username'
+        password:
+          type: 'string'
+          description: 'The user password'
+      example:
+        username: 'johndoe34'
+        password: 'asd934bnf00dmnd83bnf'

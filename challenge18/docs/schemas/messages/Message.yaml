@@ -1,0 +1,27 @@
+components:
+  schemas:
+    Message:
+      type: 'object'
+      required:
+        - 'id'
+        - 'email'
+        - 'date'
+        - 'text'
+      properties:
+        id:
+          type: 'string'
+          description: 'The auto-generated id for the message'
+        email:
+          type: 'string'
+          description: 'The email of the sender'
+        date:
+          type: 'string'
+          description: 'The date of the message'
+        text:
+          type: 'string'
+          description: 'The body of the message'
+      example:
+        id: 'd2dsf-dr54fd-fds34-rf67'
+        email: 'johndoe@gmail.com'
+        date: '2022-11-23T22:53:11.000Z'
+        text: 'Hello everyone!'

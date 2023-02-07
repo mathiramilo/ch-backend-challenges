@@ -1,0 +1,17 @@
+components:
+  requestBodies:
+    MessagePayload:
+      type: 'object'
+      required:
+        - 'email'
+        - 'text'
+      properties:
+        email:
+          type: 'string'
+          description: 'The email of the sender'
+        text:
+          type: 'string'
+          description: 'The body of the message'
+      example:
+        email: 'johndoe@gmail.com'
+        text: 'Hi everyone!'

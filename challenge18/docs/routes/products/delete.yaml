@@ -1,0 +1,25 @@
+paths:
+  '/api/products/{id}':
+    delete:
+      summary: 'Delete a product'
+      tags:
+        - 'Products'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Path parameter takes the product id'
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 'Product deleted successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDeleted'
+        '404':
+          description: 'Product not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'

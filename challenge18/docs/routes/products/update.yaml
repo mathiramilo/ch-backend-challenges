@@ -1,0 +1,31 @@
+paths:
+  '/api/products/{id}':
+    put:
+      summary: 'Update a product'
+      tags:
+        - 'Products'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Path parameter takes the product id'
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/UpdateProductPayload'
+      responses:
+        '200':
+          description: 'Product deleted successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductUpdated'
+        '404':
+          description: 'Product not found error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'

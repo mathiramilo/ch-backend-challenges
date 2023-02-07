@@ -1,0 +1,21 @@
+paths:
+  '/api/products':
+    get:
+      summary: 'Gets all products'
+      tags:
+        - 'Products'
+      responses:
+        '200':
+          description: 'All products'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                    description: 'Successfull response'
+                  data:
+                    type: 'array'
+                    items:
+                      $ref: '#/components/schemas/Product'

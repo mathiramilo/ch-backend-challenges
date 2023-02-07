@@ -1,0 +1,27 @@
+components:
+  schemas:
+    Product:
+      type: 'object'
+      required:
+        - 'id'
+        - 'title'
+        - 'price'
+        - 'thumbnail'
+      properties:
+        id:
+          type: 'string'
+          description: 'The auto-generated id for the product'
+        title:
+          type: 'string'
+          description: 'The title of the product'
+        price:
+          type: 'number'
+          description: 'The price for the product'
+        thumbnail:
+          type: 'string'
+          description: 'The URL of the product thumbnail'
+      example:
+        id: 'd2dsf-ds24fd-fds34-fds33'
+        title: 'Globe'
+        price: '120.90'
+        thumbnail: 'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-64.png'

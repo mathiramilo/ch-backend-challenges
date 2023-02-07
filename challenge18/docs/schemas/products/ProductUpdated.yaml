@@ -1,0 +1,22 @@
+components:
+  schemas:
+    ProductUpdated:
+      type: 'object'
+      properties:
+        success:
+          type: 'boolean'
+          description: 'Whether the request was successfull or not'
+        data:
+          type: 'object'
+          properties:
+            acknowledged:
+              type: 'boolean'
+              description: 'Whether the product have been updated or not'
+            modifiedCount:
+              type: 'number'
+              description: 'The quantity of modified products'
+      example:
+        success: true
+        data:
+          acknowledged: true
+          modifiedCount: 1

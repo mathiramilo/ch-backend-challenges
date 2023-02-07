@@ -1,0 +1,31 @@
+paths:
+  '/api/products/{id}':
+    get:
+      summary: 'Gets the product with given id'
+      tags:
+        - 'Products'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Path parameter takes the product id'
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 'The product for the given id'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  success:
+                    type: 'boolean'
+                    description: 'Successfull response'
+                  data:
+                    $ref: '#/components/schemas/Product'
+        '404':
+          description: 'Product not found error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
