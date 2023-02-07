@@ -1,7 +1,0 @@
-# .gitignore file for heroku deploy
-
-# All node_modules folders
-node_modules
-
-# All package-lock.json files
-package-lock.json
